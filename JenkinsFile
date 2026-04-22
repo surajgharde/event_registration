@@ -4,20 +4,19 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git  https://github.com/surajgharde/event_registration.git
+                git 'https://github.com/surajgharde/event_registration.git'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build') {
             steps {
-                sh 'docker build -t flask-app .'
+                echo 'Building...'
             }
         }
 
-
-        stage('Run Container') {
+        stage('Deploy') {
             steps {
-                sh 'docker run -d -p 5000:5000 flask-app'
+                echo 'Deploying...'
             }
         }
     }
